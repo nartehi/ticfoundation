@@ -24,7 +24,7 @@ TiC Foundation is a non-profit website aimed at providing underprivileged young 
 - [Node.js](https://nodejs.org/) installed
 - [Firebase](https://firebase.google.com/) account (for backend services)
 
-### Contributing
+### Contributing To UI
 
 1. Clone the repository:
    ```bash
@@ -32,15 +32,18 @@ TiC Foundation is a non-profit website aimed at providing underprivileged young 
 
 2. Create a branch before start developing:
    ```bash
-   git branch issue_description:
+   git branch issue_number
+   
+   e.g issue1-datePicker
 
-3. Change directory into codebase:
+3. Change directory into app-ui:
     ```bash
-   cd codebase
+   cd app-ui
    
 3. Install npm:
     ```bash
    npm i or npm install
+    Please only run this when you are prompted to otherwise do not run it
 
 4. Starts the development server:
     ```bash
