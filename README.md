@@ -1,4 +1,4 @@
-# Project Title: TiC Foundation
+# TiC Foundation
 
 ## Overview
 
