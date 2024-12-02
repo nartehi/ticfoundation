@@ -14,21 +14,21 @@ TiC Foundation is a non-profit website aimed at providing underprivileged young 
 ## Tech Stack
 
 - **React:** Frontend framework for building the user interface.
-- **Firebase:** Backend-as-a-Service for real-time database and user authentication.
-- **Material-UI:** React component library for a consistent and responsive design.
-- **Moongodb:** Backend 
+- **Postgres:** DB for Backend
+- **Java:** Spring boot
 
 ## Getting Started
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) installed
-- [Firebase](https://firebase.google.com/) account (for backend services)
+- [Node.js](https://nodejs.org/) 
+- [JAVA](https://www.oracle.com/java/technologies/downloads/) - Select your system and download accordily
+
 
 ### Contributing To UI
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/nartehi/TiC-Foundation.git
+   https://github.com/nartehi/ticfoundation.git
 
 2. Create a branch before start developing:
    ```bash
@@ -49,27 +49,26 @@ TiC Foundation is a non-profit website aimed at providing underprivileged young 
     ```bash
     npm start  or npm run-script start  
 
-5. Install UI framework:
-    ```bash 
-    npm install @material-ui/core
+#### Please do not execute steps 5,6,7,8 and 9
 
-6. Start the test runner:
+5. Start the test runner:
     ```bash
     npm test
 
-7. To create a production build:
+6. To create a production build:
     ```bash
     npm run build.
 
-8. Removes this tool and copies build dependencies, configuration files
+7. Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
     ```bash
     npm run eject
 
-9. Bundles the app into static files for production.
+8. Bundles the app into static files for production.
     ```bash
-    npm run build 
-    10. If you have issues with build, install the following fonts:
+    npm run build
+    
+9. If you have issues with build, install the following fonts:
     ```bash
     npm install --save @fortawesome/fontawesome-svg-core
     npm install --save @fortawesome/free-solid-svg-icons
