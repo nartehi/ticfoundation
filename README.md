@@ -82,8 +82,8 @@ TiC Foundation is a non-profit website aimed at providing underprivileged young 
 ### To See Latest Changes From Develop branch in your branch
 
 #### Steps:
-1. Checkout dev branch (git checkout develop)
-2. Get the latest of develop branch (git pull)
+1. Checkout main branch (git checkout main)
+2. Get the latest of main branch (git pull)
 3. Checkout branch your_branch (git checkout your_branch)
-4. Merge develop branch to branch your_branch (git merge develop)
+4. Merge develop branch to branch your_branch (git merge main)
 
