@@ -123,6 +123,7 @@ PostgreSQL for database interaction
 Configure PostgreSQL Database using the following details
 
  Downlod [PostgreSQL](https://www.postgresql.org/download/)
+ 
  Download [pgAdmin 4](https://www.pgadmin.org/download/) PostgreSQL ui for interacting with PostgreSQL Database
 
 1. Build the Project
@@ -139,7 +140,7 @@ The application will start on http://localhost:3900.
 
 Once the application is running, you can access the Swagger UI at:
 
-http://localhost:3900/swagger-ui/4.15.5/index.html?continue=#/user-controller
+http://localhost:3900/swagger-ui/4.15.5/index.html
 
 Swagger UI allows you to:
 
@@ -161,7 +162,7 @@ DELETE /api/resource/{id} - Delete a resource by ID.
 
 src/main/java
 
-   ├── com.example.project
+   ├── com.ticfoundation.ticfoundationbackend
 
    ├── controller
    
