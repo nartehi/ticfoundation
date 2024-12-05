@@ -160,7 +160,8 @@ DELETE /api/resource/{id} - Delete a resource by ID.
 #### Project Structure
 
 src/main/java
-├── com.example.project
+
+   ├── com.example.project
 
    ├── controller
    
@@ -233,6 +234,27 @@ Write clear and concise commit messages.
 Include relevant documentation or comments for your code.
 
 Ensure all tests pass before submitting a pull request.
+
+## Tech Lead
+-  ISAAC K. NARTEH
+-  TIC FOUNDATION 
+- **LinkedIn Profile**: https://www.linkedin.com/in/isaac-kwame-narteh/
+- **Github Profile**: https://github.com/nartehi
+  
+
+  - About the Lead Developer
+    
+    I am a passionate and dedicated junior student at Berea College, on a mission to make a positive impact in the fields of computing and education. With a deep interest       in 
+    empowering and supporting the next generation of young minds, I have undertaken this capstone project to create a non-profit website aimed at fostering the growth of     teenage 
+    talents in the world of computing.
+    My journey in the world of technology began as a curious teenager myself, and over the years, it has evolved into a commitment to provide a platform for teens to            explore, 
+    learn, and excel in computing. I believe in the transformative power of education and the potential it holds to shape the future.
+    Through this project, I am merging my academic knowledge with my passion for mentorship and advocacy, striving to create a digital space that not only educates but also     nurtures 
+    creativity and innovation among young minds. Together, we can inspire the next generation of programmers, problem solvers, and tech leaders.
+    I am excited about the journey ahead, and I look forward to collaborating, learning, and growing together to build a brighter future for teens in computing.
+
+    Join me in this exciting endeavor, and let's make a difference, one byte at a time!
+    
 
 ## License
 
