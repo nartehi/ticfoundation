@@ -22,6 +22,9 @@ TiC Foundation is a non-profit website aimed at providing underprivileged young 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) 
 - [JAVA](https://www.oracle.com/java/technologies/downloads/) - Select your system and download accordily
+- [NodeJs](https://nodejs.org/en/download/source-code/current)
+- [React](https://react.dev/)
+- [PostgreSQL](https://www.postgresql.org/download/)
 
 
 ### Contributing To UI
@@ -89,7 +92,7 @@ TiC Foundation is a non-profit website aimed at providing underprivileged young 
 
 
 
-# Backend with Spring Boot,PostgreSQL db and Swagger UI
+## Backend with Spring Boot,PostgreSQL db and Swagger UI
 
 ### Introduction
 
@@ -105,7 +108,7 @@ Swagger UI for API testing and documentation
 
 Layered architecture (Controller, Service, Repository)
 
-#### Prerequisites
+### Prerequisites
 
 Ensure you have the following installed on your system:
 
@@ -113,7 +116,7 @@ Java 11 or higher
 
 Maven
 
-PostgreSQL
+PostgreSQL for database interaction
 
 ### Getting Started
 
@@ -132,7 +135,7 @@ mvn clean install
 
 The application will start on http://localhost:3900.
 
-#### API Documentation with Swagger
+### API Documentation with Swagger
 
 Once the application is running, you can access the Swagger UI at:
 
@@ -144,7 +147,7 @@ Explore and test the APIs.
 
 View detailed API documentation.
 
-#### Example Endpoints
+### Example Endpoints
 
 GET /api/users - Retrieve all users.
 
@@ -157,10 +160,15 @@ DELETE /api/resource/{id} - Delete a resource by ID.
 #### Project Structure
 
 src/main/java
-├── com.example.project
+
+   ├── com.example.project
+
    ├── controller
+   
    ├── service
+   
    ├── repository
+   
    └── domain
 
 Controller: Handles HTTP requests.
@@ -171,7 +179,7 @@ Repository: Interacts with the PostgreSQL database.
 
 Domain: Represents the database entities.
 
-#### Dependencies
+### Dependencies
 
 The project uses the following dependencies:
 
@@ -183,7 +191,7 @@ PostgreSQL Driver
 
 Springdoc OpenAPI (for Swagger UI)
 
-Testing the APIs
+### Testing the APIs
 
 Use Swagger UI or tools like Postman to test the APIs. Example:
 
@@ -191,7 +199,7 @@ Test retrieving all resources with GET /api/resource.
 
 Verify database updates after creating, updating, or deleting resources.
 
-Contributing Guide
+## Contributing Guide
 
 The TiC Foundation and I welcome your contributions! Follow the steps below to get started:
 
@@ -203,13 +211,13 @@ Make your changes to the codebase. Ensure your changes follow the project coding
 
 Run the application and test your changes locally. Ensure existing functionality is not broken.
 
-####  Commit and Push Changes
+###  Commit and Push Changes
 
-git add .
+git add [FILE_NAME]
 git commit -m "Description of your changes"
 git push origin feature/your-feature-name
 
-#### Create a Pull Request
+### Create a Pull Request
 
 Go to the original repository on GitHub and click on "Pull Requests." Click "New Pull Request" and select your branch. Provide a clear description of your changes and submit the pull request.
 
@@ -227,16 +235,41 @@ Include relevant documentation or comments for your code.
 
 Ensure all tests pass before submitting a pull request.
 
-License
+## Tech Lead
+-  ISAAC K. NARTEH
+-  TIC FOUNDATION 
+- **LinkedIn Profile**: https://www.linkedin.com/in/isaac-kwame-narteh/
+- **Github Profile**: https://github.com/nartehi
+  
+
+  - About the Lead Developer
+    
+    I am a passionate and dedicated junior student at Berea College, on a mission to make a positive impact in the fields of computing and education. With a deep interest       in 
+    empowering and supporting the next generation of young minds, I have undertaken this capstone project to create a non-profit website aimed at fostering the growth of     teenage 
+    talents in the world of computing.
+    My journey in the world of technology began as a curious teenager myself, and over the years, it has evolved into a commitment to provide a platform for teens to            explore, 
+    learn, and excel in computing. I believe in the transformative power of education and the potential it holds to shape the future.
+    Through this project, I am merging my academic knowledge with my passion for mentorship and advocacy, striving to create a digital space that not only educates but also     nurtures 
+    creativity and innovation among young minds. Together, we can inspire the next generation of programmers, problem solvers, and tech leaders.
+    I am excited about the journey ahead, and I look forward to collaborating, learning, and growing together to build a brighter future for teens in computing.
+
+    Join me in this exciting endeavor, and let's make a difference, one byte at a time!
+    
+
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Acknowledgments
+## Acknowledgments
 
-Spring Boot Documentation
+[Spring Boot Documentation](https://docs.spring.io/spring-boot/index.html)
 
-PostgreSQL Documentation
+[PostgreSQL Documentation](https://www.postgresql.org/docs/)
 
-Springdoc OpenAPI Documentation
+[Springdoc OpenAPI Documentation](https://springdoc.org/)
+
+[React JS Documentation](https://legacy.reactjs.org/docs/getting-started.html)
+
+[Java Documentation](https://docs.oracle.com/en/java/)
 
 
