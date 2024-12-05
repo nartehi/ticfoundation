@@ -53,8 +53,8 @@ public class SecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .authorizeHttpRequests(
                         authorizeRequest -> authorizeRequest
-                                .requestMatchers("/api/user/userProfile").hasAuthority("ADMIN")
-                                .requestMatchers("/api/admin").hasAuthority("ADMIN")
+                                .requestMatchers("/api/user/userProfile").hasAuthority("ROLE_USER")
+                                .requestMatchers("/api/admin").hasAuthority("ROLE_ADMIN")
                                 .requestMatchers("api/generateToken").hasAuthority("ROLE_ADMIN")
                                 .anyRequest().permitAll()
                 ).formLogin(Customizer.withDefaults());

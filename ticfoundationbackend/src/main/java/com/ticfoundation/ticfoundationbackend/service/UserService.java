@@ -40,7 +40,7 @@ public class UserService implements UserDetailsService {
         User user = User.builder()
                 .username(username)
                 .password(encodedPassword) // Use the encoded password
-                .authorities("ROLE_ADMIN")
+//                .authorities("ROLE_ADMIN")
                 .build();
 
         // Save the new user to the database
