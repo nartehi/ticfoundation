@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f325727f-eaf0-487f-a119-fa1fcd548d85" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/domain/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732589155289</updated>
       <workItem from="1732589156433" duration="505000" />
-      <workItem from="1733292086054" duration="6419000" />
+      <workItem from="1733292086054" duration="17379000" />
     </task>
     <servers />
   </component>

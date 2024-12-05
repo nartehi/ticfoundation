@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { post } from '../components/ApiCalls/api';
+import { USER_API } from '../components/ApiCalls/apiConstants';
 
 const Container = styled.div`
     display: flex;
@@ -57,10 +59,10 @@ const SignUp = ({ onClose }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        phone: '',
+        username: '',
         password: '',
         confirmPassword: '',
-        role: 'student',
+        authorities: 'ROLE_STUDENT',
     });
 
     const handleChange = (e) => {
@@ -71,9 +73,42 @@ const SignUp = ({ onClose }) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+
+        if (formData.password !== formData.confirmPassword) {
+            alert('Passwords do not match!');
+            return;
+        }
+
+        const userPayload = {
+            name: formData.name,
+            email: formData.email,
+            username: formData.username,
+            password: formData.password,
+            authorities: formData.authorities,
+        };
+
+        try {
+            const response = await post(USER_API.CREATE_NEW_USER, userPayload);
+            if (response.status === 201 || response.status === 200) {
+                alert('User registered successfully!');
+                setFormData({
+                    name: '',
+                    email: '',
+                    username: '',
+                    password: '',
+                    confirmPassword: '',
+                    authorities: 'ROLE_STUDENT',
+                });
+                onClose();
+            } else {
+                alert(`Error: ${response.data?.message || 'Unexpected error occurred'}`);
+            }
+        } catch (error) {
+            console.error(error);
+            alert(`An error occurred: ${error.message || 'Please try again later.'}`);
+        }
     };
 
     return (
@@ -98,10 +133,10 @@ const SignUp = ({ onClose }) => {
                         required
                     />
                     <Input
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone"
-                        value={formData.phone}
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value={formData.username}
                         onChange={handleChange}
                         required
                     />
@@ -122,15 +157,15 @@ const SignUp = ({ onClose }) => {
                         required
                     />
                     <Select
-                        name="role"
-                        value={formData.role}
+                        name="authorities"
+                        value={formData.authorities}
                         onChange={handleChange}
                         required
                     >
-                        <option value="student">Student</option>
-                        <option value="administrator">Administrator</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="tutor">Tutor</option>
+                        <option value="ROLE_STUDENT">Student</option>
+                        <option value="ROLE_ADMIN">Administrator</option>
+                        <option value="ROLE_TEACHER">Teacher</option>
+                        <option value="ROLE_TUTOR">Tutor</option>
                     </Select>
                     <Button type="submit">Sign Up</Button>
                 </form>

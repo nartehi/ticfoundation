@@ -36,9 +36,10 @@ public class UserController {
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/create")
-    @AllowedRoles({"ROLE_ADMIN"})
+//    @AllowedRoles({"ROLE_ADMIN"})
     @Operation(summary = "Add a new user to the sytem", description = "Create a new user")
     public ResponseEntity<String> create(@RequestBody User user) {
+        log.info("Added a new user");
         String responseMessage = userService.create(user);
         return ResponseEntity.ok(responseMessage);
     }
@@ -60,7 +61,7 @@ public class UserController {
     @AllowedRoles({"ROLE_ADMIN"})
     @Operation(summary = "Retrieve a list of users", description = "Returns all users in the system")
     public ResponseEntity<List<User>> getUsers() {
-        log.info("Getting all users from the system: {}", User.getUsername());
+        log.info("Getting all users from the system");
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
