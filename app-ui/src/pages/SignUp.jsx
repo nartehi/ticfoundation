@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { post } from '../components/ApiCalls/api';
 import { USER_API } from '../components/ApiCalls/apiConstants';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
 const Container = styled.div`
     display: flex;
@@ -21,7 +23,18 @@ const Form = styled.div`
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 400px;
+    text-align: center;
+    position: relative; 
+`;
+
+const SnackbarContainer = styled.div`
+    position: absolute;
+    top: -5px; /* Adjust position to show above the form */
+    left: 60%;
+    transform: translateX(-50%);
+    z-index: 1500; /* Ensure it stays above the form */
+    width: 400px; /* Adjust the width here */
     text-align: center;
 `;
 
@@ -65,6 +78,7 @@ const SignUp = ({ onClose }) => {
         authorities: 'ROLE_STUDENT',
     });
     const [profilePicture, setProfilePicture] = useState(null);
+    const [flashMessage, setFlashMessage] = useState({ open: false, message: '', severity: '' });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -82,7 +96,7 @@ const SignUp = ({ onClose }) => {
         e.preventDefault();
 
         if (formData.password !== formData.confirmPassword) {
-            alert('Passwords do not match!');
+            setFlashMessage({ open: true, message: 'Passwords do not match!', severity: 'error' });
             return;
         }
 
@@ -107,7 +121,9 @@ const SignUp = ({ onClose }) => {
             });
 
             if (response.status === 201 || response.status === 200) {
-                alert('User registered successfully!');
+                setFlashMessage({ open: true, message: 'User registered successfully!', severity: 'success' });
+
+                // Clear form data after successful submission
                 setFormData({
                     name: '',
                     email: '',
@@ -117,19 +133,34 @@ const SignUp = ({ onClose }) => {
                     authorities: 'ROLE_STUDENT',
                 });
                 setProfilePicture(null);
-                onClose();
+
+                // Close the modal after a short delay
+                setTimeout(() => {
+                    onClose();
+                }, 2000);
             } else {
-                alert(`Error: ${response.data?.message || 'Unexpected error occurred'}`);
+                setFlashMessage({ open: true, message: response.data?.message || 'Unexpected error occurred', severity: 'error' });
             }
         } catch (error) {
             console.error(error);
-            alert(`An error occurred: ${error.message || 'Please try again later.'}`);
+            setFlashMessage({ open: true, message: error.message || 'An error occurred. Please try again.', severity: 'error' });
         }
     };
 
     return (
         <Container onClick={onClose}>
             <Form onClick={(e) => e.stopPropagation()}>
+                <SnackbarContainer>
+                    <Snackbar
+                        open={flashMessage.open}
+                        autoHideDuration={6000}
+                        onClose={() => setFlashMessage({ ...flashMessage, open: false })}
+                    >
+                        <Alert severity={flashMessage.severity} onClose={() => setFlashMessage({ ...flashMessage, open: false })}>
+                            {flashMessage.message}
+                        </Alert>
+                    </Snackbar>
+                </SnackbarContainer>
                 <h2>Sign Up To Join Us!</h2>
                 <form onSubmit={handleSubmit}>
                     <Input

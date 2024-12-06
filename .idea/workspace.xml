@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f325727f-eaf0-487f-a119-fa1fcd548d85" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/service/FileStorageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-ui/src/components/ExecutivePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app-ui/src/components/ExecutivePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-ui/src/pages/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app-ui/src/pages/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticfoundationbackend/src/main/java/com/ticfoundation/ticfoundationbackend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticfoundationbackend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ticfoundationbackend/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732589155289</updated>
       <workItem from="1732589156433" duration="505000" />
-      <workItem from="1733292086054" duration="30510000" />
+      <workItem from="1733292086054" duration="33008000" />
     </task>
     <servers />
   </component>
