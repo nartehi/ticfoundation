@@ -9,7 +9,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -28,22 +30,49 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
     }
 
-    public String create(String username, String password) {
-        if (userRepo.findByUsername(username).isPresent()) {
+//    @Autowired
+//    private FileStorageService fileStorageService; // Service for handling file uploads
+//
+//    public String create(User user, MultipartFile profilePicture) throws IOException {
+//        if (userRepo.findByUsername(user.getUsername()).isPresent()) {
+//            throw new IllegalArgumentException("Username is already taken");
+//        }
+//
+//        // Encrypt password
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//
+//        // Handle profile picture upload
+//        if (profilePicture != null && !profilePicture.isEmpty()) {
+//            String profilePictureUrl = fileStorageService.storeFile(profilePicture);
+//            user.setProfilePictureUrl(profilePictureUrl);
+//        }
+//        // Save user to database
+//        userRepo.save(user);
+//        return "User created successfully!";
+//    }
+
+    @Autowired
+    private FileStorageService fileStorageService; // Service for handling file uploads
+
+    public String create(User user, MultipartFile profilePicture) throws IOException {
+        if (userRepo.findByUsername(user.getUsername()).isPresent()) {
             throw new IllegalArgumentException("Username is already taken");
         }
 
-        // Encode the password
-        String encodedPassword = passwordEncoder.encode(password);
+        // Encrypt password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        // Create a new User object
-        User user = User.builder()
-                .username(username)
-                .password(encodedPassword) // Use the encoded password
-//                .authorities("ROLE_ADMIN")
-                .build();
+        // Handle profile picture upload
+        if (profilePicture != null && !profilePicture.isEmpty()) {
+            // Store the file and get the file path
+            String filePath = fileStorageService.storeFile(profilePicture);
+            // Print the file path for debugging
+            System.out.println("Saving file path to database: " + filePath);
+            // Set the file path to the user object
+            user.setProfilePicture(filePath);
+        }
 
-        // Save the new user to the database
+        // Save user to database
         userRepo.save(user);
         return "User created successfully!";
     }

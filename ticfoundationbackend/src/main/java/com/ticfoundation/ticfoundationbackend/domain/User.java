@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "USER_REGISTRATION")
+@Table(name = "USERS")
 public class User implements UserDetails {
     private static final String AUTHORITIES_DELIMITER = ","; // Updated delimiter for consistency
 
@@ -29,6 +29,8 @@ public class User implements UserDetails {
     private String username; // Ensure this matches the field used for username
     private String email;
     private String password;
+    private String confirmPassword;
+    private String profilePicture;
 
     @Column(name = "authorities", nullable = false)
     private String authorities; // Serialized representation of roles
@@ -70,5 +72,8 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void setProfilePictureUrl(String profilePictureUrl) {
     }
 }

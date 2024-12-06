@@ -16,7 +16,9 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Slf4j
@@ -36,13 +38,21 @@ public class UserController {
     private AuthenticationManager authenticationManager;
 
     @PostMapping("/create")
-//    @AllowedRoles({"ROLE_ADMIN"})
-    @Operation(summary = "Add a new user to the sytem", description = "Create a new user")
-    public ResponseEntity<String> create(@RequestBody User user) {
-        log.info("Added a new user");
-        String responseMessage = userService.create(user);
-        return ResponseEntity.ok(responseMessage);
+    @Operation(summary = "Add a new user to the system", description = "Create a new user with an optional profile picture")
+    public ResponseEntity<String> create(
+            @RequestPart("user") User user,
+            @RequestPart(value = "profilePicture", required = false) MultipartFile profilePicture) {
+
+        log.info("Added a new user: {}", user.getUsername());
+        try {
+            String responseMessage = userService.create(user, profilePicture);
+            return ResponseEntity.status(HttpStatus.CREATED).body(responseMessage);
+        } catch (IOException e) {
+            log.error("Error uploading profile picture", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload profile picture");
+        }
     }
+
     @GetMapping("/user/userProfile")
     @AllowedRoles({"ROLE_USER"})
     @Operation(summary = "Retrieve the User Profile Page", description = "Returns user profile")

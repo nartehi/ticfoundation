@@ -64,6 +64,7 @@ const SignUp = ({ onClose }) => {
         confirmPassword: '',
         authorities: 'ROLE_STUDENT',
     });
+    const [profilePicture, setProfilePicture] = useState(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -71,6 +72,10 @@ const SignUp = ({ onClose }) => {
             ...formData,
             [name]: value,
         });
+    };
+
+    const handleFileChange = (e) => {
+        setProfilePicture(e.target.files[0]);
     };
 
     const handleSubmit = async (e) => {
@@ -81,16 +86,26 @@ const SignUp = ({ onClose }) => {
             return;
         }
 
-        const userPayload = {
+        const formDataPayload = new FormData();
+        formDataPayload.append('user', new Blob([JSON.stringify({
             name: formData.name,
             email: formData.email,
             username: formData.username,
             password: formData.password,
             authorities: formData.authorities,
-        };
+        })], { type: 'application/json' }));
+        
+        if (profilePicture) {
+            formDataPayload.append('profilePicture', profilePicture);
+        }
 
         try {
-            const response = await post(USER_API.CREATE_NEW_USER, userPayload);
+            const response = await post(USER_API.CREATE_NEW_USER, formDataPayload, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
             if (response.status === 201 || response.status === 200) {
                 alert('User registered successfully!');
                 setFormData({
@@ -101,6 +116,7 @@ const SignUp = ({ onClose }) => {
                     confirmPassword: '',
                     authorities: 'ROLE_STUDENT',
                 });
+                setProfilePicture(null);
                 onClose();
             } else {
                 alert(`Error: ${response.data?.message || 'Unexpected error occurred'}`);
@@ -167,6 +183,12 @@ const SignUp = ({ onClose }) => {
                         <option value="ROLE_TEACHER">Teacher</option>
                         <option value="ROLE_TUTOR">Tutor</option>
                     </Select>
+                    <Input
+                        type="file"
+                        name="profilePicture"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                    />
                     <Button type="submit">Sign Up</Button>
                 </form>
             </Form>

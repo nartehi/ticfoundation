@@ -1,5 +1,4 @@
 import React from 'react';
-import founderImage from '../components/img/founder.png';
 import LilianeImage from '../components/img/Liliane.jpeg';
 import KyleImage from '../components/img/Kyle.jpeg'
 import IsaacImage from '../components/img/Isaac.jpeg'
