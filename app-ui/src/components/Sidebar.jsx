@@ -118,7 +118,7 @@ const Sidebar = ({ onModalOpen }) => {
                     <Logo src={logo} alt="Logo" /> 
                     <Title>TiC Foundation</Title>
                     <NavMenu>
-                        <NavItem to="/">Home</NavItem>
+                        <NavItem to="/home">Home</NavItem>
                         <NavItem to="/about-us">About Us</NavItem>
                         <NavItem to="/commitment">Commitments</NavItem>
                         <NavItem to="/executives">Our Team</NavItem>
