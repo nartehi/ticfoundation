@@ -1,5 +1,7 @@
 # TiC Foundation
 
+2600:1700:513:41a0:45ba:6a6f:1947:e68c
+
 ## Overview
 
 TiC Foundation is a non-profit website aimed at providing underprivileged young students in rural towns of Ghana with resources to learn basic computer skills. This React-based platform serves as a hub for educational materials, interactive lessons, and community support to bridge the digital divide and empower students for a better future.
